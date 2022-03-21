@@ -93,6 +93,59 @@
 						"description": "Gets all comments on the system ordered by date, from the latest to the earliest.\n\n**Sample Response**\n\n``` json\n{\n  \"data\": [\n    {\n      \"id\": 15,\n      \"type\": \"Comment\",\n      \"attributes\": {\n        \"book_isbn\": \"978-0553103540\",\n        \"comment_text\": \"Similique nobis itaque architecto autem velit pariatur.\",\n        \"commenter_ip\": \"244.190.171.189\",\n        \"created_at\": \"20/03/2022 19:55\"\n      }\n    },\n    {\n      \"id\": 13,\n      \"type\": \"Comment\",\n      \"attributes\": {\n        \"book_isbn\": \"5233200457\",\n        \"comment_text\": \"Deserunt vel saepe ea in.\",\n        \"commenter_ip\": \"22.103.79.182\",\n        \"created_at\": \"20/03/2022 19:55\"\n      }\n    }\n  ]\n}\n\n```"
 					},
 					"response": []
+				},
+				{
+					"name": "add-comment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"book_isbn\": \"978-0553103540\",\r\n    \"comment_text\": \"This is a sample comment\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/comments",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"comments"
+							]
+						},
+						"description": "Adds a comment\n\n**Sample Response**\n\n``` json\n{\n    \"data\": {\n        \"id\": 26,\n        \"type\": \"Comment\",\n        \"attributes\": {\n            \"book_isbn\": \"978-0553103540\",\n            \"comment_text\": \"This is a sample comment\",\n            \"commenter_ip\": \"10.1.95.254\",\n            \"created_at\": \"21/03/2022 11:43\"\n        }\n    }\n}\n\n```"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "docs",
+			"item": [
+				{
+					"name": "get-doc",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/docs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"docs"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}
