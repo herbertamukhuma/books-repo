@@ -31,6 +31,8 @@ $router->group(['prefix' => 'api/comments'], function () use($router){
 
     $router->get('','CommentsController@index');
 
+    $router->post('','CommentsController@store');
+
 });
 
 $router->group(['prefix' => 'api/docs'], function () use($router){
