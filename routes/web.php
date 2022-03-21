@@ -32,3 +32,11 @@ $router->group(['prefix' => 'api/comments'], function () use($router){
     $router->get('','CommentsController@index');
 
 });
+
+$router->group(['prefix' => 'api/docs'], function () use($router){
+
+    $router->get('',function (){
+        return file_get_contents("../public/docs/index.html");
+    });
+
+});
