@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "05d3a68a-96ec-4899-8142-8c21cf75de01",
+		"name": "books-repo",
+		"description": "Documentation for the books-repo API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "books",
+			"item": [
+				{
+					"name": "get-all-books",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/books",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"books"
+							]
+						},
+						"description": "Gets all books within the API.\n\n**Sample Response**\n\n``` json\n{\n  \"status\": \"success\",\n  \"data\": [\n    {\n      \"url\": \"https://anapioficeandfire.com/api/books/1\",\n      \"name\": \"A Game of Thrones\",\n      \"isbn\": \"978-0553103540\",\n      \"authors\": [\n        \"George R. R. Martin\"\n      ],\n      \"numberOfPages\": 694,\n      \"publisher\": \"Bantam Books\",\n      \"country\": \"United States\",\n      \"mediaType\": \"Hardcover\",\n      \"released\": \"1996-08-01T00:00:00\",\n      \"comment_count\": 2\n    },\n    {\n      \"url\": \"https://anapioficeandfire.com/api/books/2\",\n      \"name\": \"A Clash of Kings\",\n      \"isbn\": \"978-0553108033\",\n      \"authors\": [\n        \"George R. R. Martin\"\n      ],\n      \"numberOfPages\": 768,\n      \"publisher\": \"Bantam Books\",\n      \"country\": \"United States\",\n      \"mediaType\": \"Hardback\",\n      \"released\": \"1999-02-02T00:00:00\",\n      \"comment_count\": 0\n    }\n  ]\n}\n\n```"
+					},
+					"response": []
+				}
+			],
+			"description": "Books Collection"
+		},
+		{
+			"name": "characters",
+			"item": [
+				{
+					"name": "query-characters",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/characters/query?order_by=gender&order_direction=asc",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"characters",
+								"query"
+							],
+							"query": [
+								{
+									"key": "order_by",
+									"value": "gender"
+								},
+								{
+									"key": "order_direction",
+									"value": "asc"
+								},
+								{
+									"key": "gender",
+									"value": "female",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Gets all characters on the system based on the specified parameters.\n\n*   **order_by**: You can order by **age**, **name** or **gender.**\n*   **order_direction**: This can be **asc** or **desc**. Case does not matter.\n*   **gender**: If this parameter is specified, it will fetch characters only with the specified gender. This can be either **male** or **female**.\n    \n\n**Sample Response**\n\n``` json\n{\n  \"status\": \"success\",\n  \"data\": [\n    {\n      \"url\": \"https://anapioficeandfire.com/api/characters/1\",\n      \"name\": \"\",\n      \"gender\": \"Female\",\n      \"culture\": \"Braavosi\",\n      \"born\": \"\",\n      \"died\": \"\",\n      \"titles\": [\n        \"\"\n      ],\n      \"aliases\": [\n        \"The Daughter of the Dusk\"\n      ],\n      \"father\": \"\",\n      \"mother\": \"\",\n      \"spouse\": \"\",\n      \"allegiances\": [],\n      \"books\": [\n        \"https://anapioficeandfire.com/api/books/5\"\n      ],\n      \"povBooks\": [],\n      \"tvSeries\": [\n        \"\"\n      ],\n      \"playedBy\": [\n        \"\"\n      ]\n    },\n    {\n      \"url\": \"https://anapioficeandfire.com/api/characters/10\",\n      \"name\": \"\",\n      \"gender\": \"Female\",\n      \"culture\": \"Braavosi\",\n      \"born\": \"\",\n      \"died\": \"\",\n      \"titles\": [\n        \"\"\n      ],\n      \"aliases\": [\n        \"The Veiled Lady\"\n      ],\n      \"father\": \"\",\n      \"mother\": \"\",\n      \"spouse\": \"\",\n      \"allegiances\": [],\n      \"books\": [\n        \"https://anapioficeandfire.com/api/books/5\"\n      ],\n      \"povBooks\": [],\n      \"tvSeries\": [\n        \"\"\n      ],\n      \"playedBy\": [\n        \"\"\n      ]\n    }\n  ]\n}\n\n```"
+					},
+					"response": []
+				}
+			],
+			"description": "Characters Collection"
+		},
+		{
+			"name": "comments",
+			"item": [
+				{
+					"name": "get-all-comments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/comments",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"comments"
+							]
+						},
+						"description": "Gets all comments on the system ordered by date, from the latest to the earliest.\n\n**Sample Response**\n\n``` json\n{\n  \"data\": [\n    {\n      \"id\": 15,\n      \"type\": \"Comment\",\n      \"attributes\": {\n        \"book_isbn\": \"978-0553103540\",\n        \"comment_text\": \"Similique nobis itaque architecto autem velit pariatur.\",\n        \"commenter_ip\": \"244.190.171.189\",\n        \"created_at\": \"20/03/2022 19:55\"\n      }\n    },\n    {\n      \"id\": 13,\n      \"type\": \"Comment\",\n      \"attributes\": {\n        \"book_isbn\": \"5233200457\",\n        \"comment_text\": \"Deserunt vel saepe ea in.\",\n        \"commenter_ip\": \"22.103.79.182\",\n        \"created_at\": \"20/03/2022 19:55\"\n      }\n    }\n  ]\n}\n\n```"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
